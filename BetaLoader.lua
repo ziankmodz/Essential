@@ -37,19 +37,19 @@ local config = {
 
 local function saveConfig()
 	local encrypt = game:GetService("HttpService"):JSONEncode(config)
-	if isfile("/config.json") then
-		delfile("Essential/config.json")
+	if isfile("EssentialBeta/config.json") then
+		delfile("EssentialBeta/config.json")
 	end
-	writefile("Essential/config.json",encrypt)
+	writefile("EssentialBeta/config.json",encrypt)
 end
 
 local function loadConfig()
-	local decrypt = game:GetService("HttpService"):JSONDecode(readfile("Essential/config.json"))
+	local decrypt = game:GetService("HttpService"):JSONDecode(readfile("EssentialBeta/config.json"))
 	config = decrypt
 end
 
-if not isfile("Essential/config.json") then
-	makefolder("Essential")
+if not isfile("EssentialBeta/config.json") then
+	makefolder("EssentialBeta")
 	saveConfig()
 end
 
@@ -600,9 +600,9 @@ Utility = library.NewWindow("Utility")
 Visuals = library.NewWindow("Visuals")
 World = library.NewWindow("World")
 
-local weaponMeta = loadstring(game:HttpGet("https://raw.githubusercontent.com/nil5623we/LOLJKA/main/weaponMeta", true))()
-local Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/nil5623we/LOLJKA/main/FunctionTable", true))()
-local Utilities = loadstring(game:HttpGet("https://raw.githubusercontent.com/nil5623we/LOLJKA/main/utils", true))()
+local weaponMeta = loadstring(game:HttpGet("https://raw.githubusercontent.com/ziankmodz/LOLJKA/main/weaponMeta", true))()
+local Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/ziankmodz/LOLJKA/main/FunctionTable", true))()
+local Utilities = loadstring(game:HttpGet("https://raw.githubusercontent.com/ziankmodz/LOLJKA/main/utils", true))()
 
 local netmanaged = ReplicatedStorage.rbxts_include.node_modules["@rbxts"].net.out._NetManaged
 local blockenginemanaged = ReplicatedStorage.rbxts_include.node_modules:WaitForChild("@easy-games"):WaitForChild("block-engine").node_modules:WaitForChild("@rbxts").net.out:WaitForChild("_NetManaged")
